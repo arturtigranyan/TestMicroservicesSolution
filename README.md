@@ -1,72 +1,126 @@
-# TestMicroservicesSolution
-Test Microservices
+Test Microservices Solution
 
-TestMicroservicesSolution
-This is a full-stack Microservices-based Web Application built using Clean Architecture, .NET 8, Angular, and SQL Server.
+This repository contains a full-stack microservices-based web application built using Clean Architecture, .NET 8, Angular, and SQL Server. The solution demonstrates best practices for developing scalable and maintainable software.
+
+Project Overview
+
+Architecture
+
+The solution employs Clean Architecture principles to ensure separation of concerns and maintainability.
+
+Presentation Layer:
+
+APIs (ASP.NET Core Web API)
+
+Frontend (Angular)
+
+Application Layer:
+
+Contains core application logic, independent from infrastructure.
+
+Domain Layer:
+
+Core business entities, rules, and validations.
+
+Infrastructure Layer:
+
+SQL Server database (accessed via Entity Framework Core)
+
+Authentication and authorization (ASP.NET Core Identity & JWT)
+
+Logging (Serilog)
+
+Microservices
+
+The project consists of three main microservices:
+
+User Management Service: Handles authentication, registration, and user profiles.
+
+Product Management Service: Manages products, inventory, and related operations.
+
+Order Management Service: Manages orders, transactions, and user orders.
+
+Communication between microservices is managed through an Ocelot API Gateway.
+
+Technologies Used
+
+.NET 8
+
+ASP.NET Core Web API
+
+Angular
+
+SQL Server
+
+Entity Framework Core
+
+Ocelot API Gateway
+
+JWT Authentication
+
+Serilog (logging)
 
 Getting Started
 
 Prerequisites
 
 .NET 8 SDK
-Node.js & npm
-SQL Server
-Visual Studio or VS Code
 
-Installation
+Node.js & npm
+
+SQL Server
+
+Installation & Setup
 
 Clone the repository:
+
 git clone https://github.com/arturtigranyan/TestMicroservicesSolution.git
 cd TestMicroservicesSolution
 
-Navigate to the src directory and restore dependencies:
-dotnet restore
+Restore backend dependencies:
 
-Database Setup
+dotnet restore ./src
 
-Apply migrations for each microservice:
+Apply database migrations:
 
-User Microservice:
-dotnet ef database update --project ./src/Test.Api.UserMicroservice/Test.Infrastructure --startup-project ./src/Test.Api.UserMicroservice/Test.Api
+dotnet ef database update --project ./src/{Microservice}/Test.Infrastructure --startup-project ./src/{Microservice}/Test.Api
 
-Product Microservice:
-dotnet ef database update --project ./src/Test.Api.ProductService/Test.Infrastructure --startup-project ./src/Test.Api.ProductService/Test.Api
+Replace {Microservice} with:
 
-Order Microservice:
-dotnet ef database update --project ./src/Test.Api.OrderService/Test.Infrastructure --startup-project ./src/Test.Api.OrderService/Test.Api
+Test.Api.UserMicroservice
 
-Running the Application
+Test.Api.ProductService
 
-Run each microservice individually using Visual Studio or the CLI:
-dotnet run --project ./src/{Microservice}/Test.Api
+Test.Api.OrderService
 
-Replace {Microservice} with the specific microservice name (e.g., Test.Api.UserMicroservice).
+Run backend services individually (from Visual Studio or CLI).
 
-Frontend Setup (Angular)
-Navigate to the Angular directory:
+Frontend setup:
+
+Navigate to Angular project and install dependencies:
 
 cd src/TestApiAngular
-npm install
+yarn install
 ng serve
 
-Open Angular application at:
+Project Structure
 
-http://localhost:4200
+.
+??? docs/                 # Architecture documentation
+??? MigrationScripts/     # SQL migration scripts
+??? src/
+?   ??? Test.Api.OrderService/
+?   ??? Test.Api.ProductService/
+?   ??? Test.Api.UserMicroservice/
+?   ??? TestApiAngular/   # Frontend Angular project
+?   ??? Test.ApiGateway/  # Ocelot API Gateway
+??? .github/              # CI/CD pipelines
+??? README.md             # This documentation
 
-Running Tests
-Execute all tests:
-dotnet test ./src
+CI/CD
 
-Documentation
-Further documentation on architecture decisions, setup instructions, and API usage is located in the docs folder.
+CI/CD pipelines configured with GitHub Actions for automated builds and tests.
 
-CI/CD Pipeline
-Continuous Integration configured with GitHub Actions to build and test automatically on every push.
+Contribution
 
-Technologies
-.NET 8
-Entity Framework Core
-SQL Server
-Angular
-GitHub Actions
-Serilog
+Contributions are welcome. Please submit pull requests or report issues via GitHub.
