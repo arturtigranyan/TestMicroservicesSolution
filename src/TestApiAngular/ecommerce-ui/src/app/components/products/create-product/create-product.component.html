@@ -1,0 +1,11 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <input formControlName="name" placeholder="Product Name" required>
+    <textarea formControlName="description" placeholder="Description" required></textarea>
+    <input type="number" formControlName="price" placeholder="Price" required min="0.01">
+    
+    <input type="number" formControlName="quantity" placeholder="Quantity" required min="1">
+    <input formControlName="category" placeholder="Category" required>
+  
+    <button type="submit">Create Product</button>
+  </form>
+  

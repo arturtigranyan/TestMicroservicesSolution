@@ -1,0 +1,16 @@
+<div>
+    <h2>Orders</h2>
+    <div *ngFor="let order of orders">
+      <h3>Order ID: {{ order.id }}</h3>
+      <p>User ID: {{ order.userId }}</p>
+      <p>Date: {{ order.createdAt | date:'short' }}</p>
+      <ul>
+        <li *ngFor="let item of order.items">
+          Product: {{ item.productId }} - Quantity: {{ item.quantity }} - Price: {{ item.unitPrice | currency }}
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="orders.length === 0">No orders yet.</div>
+  </div>
+  

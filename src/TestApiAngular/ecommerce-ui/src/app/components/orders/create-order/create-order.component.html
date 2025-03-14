@@ -1,0 +1,5 @@
+<form [formGroup]="orderForm" (ngSubmit)="createOrder()">
+    <input formControlName="productId" placeholder="Product ID" />
+    <input formControlName="quantity" type="number" placeholder="Quantity" />
+    <button type="submit">Create Order</button>
+  </form>  
