@@ -1,6 +1,0 @@
-@Test.Api.Gateway_HostAddress = http://localhost:5023
-
-GET {{Test.Api.Gateway_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
